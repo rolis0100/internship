@@ -24,7 +24,7 @@ class FeedParser: NSObject, XMLParserDelegate {
         case title = "title"
         case description = "description"
         case pubDate = "pubDate"
-        case media = "media"
+        case media = "media:thumbnail"
         case link = "link"
     }
     

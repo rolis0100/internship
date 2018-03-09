@@ -57,6 +57,7 @@ class NewsTableViewController: UITableViewController {
             cell.TitleLable.text = item.title
             cell.DescLable.text = item.description
             cell.DateLable.text = item.pubDate
+            cell.ImgView.downloadImage(url: item.media)
         }
 
         return cell
