@@ -10,8 +10,16 @@ import UIKit
 
 class NewsTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var TitleLable: UILabel!
-    @IBOutlet weak var DescLable: UILabel!
+    @IBOutlet weak var TitleLable: UILabel! {
+        didSet {
+            TitleLable.numberOfLines = 0
+        }
+    }
+    @IBOutlet weak var DescLable: UILabel! {
+        didSet {
+            DateLable.numberOfLines = 0
+        }
+    }
     @IBOutlet weak var DateLable: UILabel!
     
     @IBOutlet weak var ImgView: UIImageView!

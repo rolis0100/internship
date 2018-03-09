@@ -10,14 +10,21 @@ import UIKit
 
 class NewsTableViewController: UITableViewController {
 
+    private var rssItems:[ArticleItem]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+       // The parseFeed method parse the specified RSS feed. Save rssItems and ask the table view to display them by reloading the table data.
+        let feedParser = FeedParser()
+        feedParser.parseFeed(feedUrl: "https://feeds.bbci.co.uk/news/technology/rss.xml", complitionHandler: { (rssItems: [ArticleItem]) -> Void in
+            
+            self.rssItems = rssItems
+            OperationQueue.main.addOperation({ () -> Void in
+               
+                self.tableView.reloadSections(IndexSet(integer: 0), with: .none)
+            })
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,24 +35,33 @@ class NewsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        // Return the number of sections
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        // Return the number of rows in the section.
+        guard let rssItems = rssItems else {
+            return 0
+        }
+        
+        return rssItems.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NewsTableViewCell
 
         // Configure the cell...
+        if let item = rssItems?[indexPath.row] {
+            cell.TitleLable.text = item.title
+            cell.DescLable.text = item.description
+            cell.DateLable.text = item.pubDate
+        }
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
