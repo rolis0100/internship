@@ -17,7 +17,7 @@ class NewsTableViewController: UITableViewController {
 
        // The parseFeed method parse the specified RSS feed. Save rssItems and ask the table view to display them by reloading the table data.
         let feedParser = FeedParser()
-        feedParser.parseFeed(feedUrl: "https://feeds.bbci.co.uk/news/technology/rss.xml", complitionHandler: { (rssItems: [ArticleItem]) -> Void in
+        feedParser.parseFeed(feedUrl: "http://feeds.bbci.co.uk/news/technology/rss.xml", complitionHandler: { (rssItems: [ArticleItem]) -> Void in
             
             self.rssItems = rssItems
             OperationQueue.main.addOperation({ () -> Void in

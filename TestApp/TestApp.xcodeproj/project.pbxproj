@@ -43,6 +43,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F0314669206960F6000E6F14 /* Model RSS */ = {
+			isa = PBXGroup;
+			children = (
+				F04741962050228100996BD6 /* NewsTableViewCell.swift */,
+			);
+			path = "Model RSS";
+			sourceTree = "<group>";
+		};
+		F031466A20696133000E6F14 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F0474186205019AD00996BD6 /* Main.storyboard */,
+				F047418B205019AD00996BD6 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F031466B20696154000E6F14 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F047419420501C4C00996BD6 /* NewsTableViewController.swift */,
+				F01C761B20542FC200122537 /* DetailViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F031466C20696194000E6F14 /* Suporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F047419820502BCC00996BD6 /* FeedParser.swift */,
+				F0474182205019AD00996BD6 /* AppDelegate.swift */,
+				F01D35232052F89F00ADBBA2 /* Extensions.swift */,
+			);
+			path = "Suporting Files";
+			sourceTree = "<group>";
+		};
 		F0474176205019AD00996BD6 = {
 			isa = PBXGroup;
 			children = (
@@ -62,15 +98,11 @@
 		F0474181205019AD00996BD6 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
-				F0474182205019AD00996BD6 /* AppDelegate.swift */,
-				F01D35232052F89F00ADBBA2 /* Extensions.swift */,
-				F047419820502BCC00996BD6 /* FeedParser.swift */,
-				F04741962050228100996BD6 /* NewsTableViewCell.swift */,
-				F047419420501C4C00996BD6 /* NewsTableViewController.swift */,
-				F0474186205019AD00996BD6 /* Main.storyboard */,
-				F01C761B20542FC200122537 /* DetailViewController.swift */,
+				F0314669206960F6000E6F14 /* Model RSS */,
+				F031466A20696133000E6F14 /* Views */,
+				F031466B20696154000E6F14 /* Controllers */,
+				F031466C20696194000E6F14 /* Suporting Files */,
 				F0474189205019AD00996BD6 /* Assets.xcassets */,
-				F047418B205019AD00996BD6 /* LaunchScreen.storyboard */,
 				F047418E205019AD00996BD6 /* Info.plist */,
 			);
 			path = TestApp;
