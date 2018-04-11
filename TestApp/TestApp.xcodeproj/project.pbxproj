@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F00B3B9D207E38E20071319C /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00B3B9C207E38E20071319C /* ToDoTableViewController.swift */; };
 		F01C761C20542FC200122537 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01C761B20542FC200122537 /* DetailViewController.swift */; };
 		F01D35242052F89F00ADBBA2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D35232052F89F00ADBBA2 /* Extensions.swift */; };
 		F0474183205019AD00996BD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0474182205019AD00996BD6 /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F00B3B9C207E38E20071319C /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
 		F01C761B20542FC200122537 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F01D35232052F89F00ADBBA2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F047417F205019AD00996BD6 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,12 +45,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F0314669206960F6000E6F14 /* Model RSS */ = {
+		F00B3B9B207E38B70071319C /* ToDo */ = {
+			isa = PBXGroup;
+			children = (
+				F00B3B9C207E38E20071319C /* ToDoTableViewController.swift */,
+			);
+			path = ToDo;
+			sourceTree = "<group>";
+		};
+		F0314669206960F6000E6F14 /* RSS */ = {
 			isa = PBXGroup;
 			children = (
 				F04741962050228100996BD6 /* NewsTableViewCell.swift */,
+				F047419420501C4C00996BD6 /* NewsTableViewController.swift */,
+				F01C761B20542FC200122537 /* DetailViewController.swift */,
 			);
-			path = "Model RSS";
+			path = RSS;
 			sourceTree = "<group>";
 		};
 		F031466A20696133000E6F14 /* Views */ = {
@@ -58,15 +70,6 @@
 				F047418B205019AD00996BD6 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		F031466B20696154000E6F14 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				F047419420501C4C00996BD6 /* NewsTableViewController.swift */,
-				F01C761B20542FC200122537 /* DetailViewController.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		F031466C20696194000E6F14 /* Suporting Files */ = {
@@ -98,9 +101,9 @@
 		F0474181205019AD00996BD6 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
-				F0314669206960F6000E6F14 /* Model RSS */,
+				F0314669206960F6000E6F14 /* RSS */,
+				F00B3B9B207E38B70071319C /* ToDo */,
 				F031466A20696133000E6F14 /* Views */,
-				F031466B20696154000E6F14 /* Controllers */,
 				F031466C20696194000E6F14 /* Suporting Files */,
 				F0474189205019AD00996BD6 /* Assets.xcassets */,
 				F047418E205019AD00996BD6 /* Info.plist */,
@@ -182,6 +185,7 @@
 			files = (
 				F01D35242052F89F00ADBBA2 /* Extensions.swift in Sources */,
 				F047419920502BCC00996BD6 /* FeedParser.swift in Sources */,
+				F00B3B9D207E38E20071319C /* ToDoTableViewController.swift in Sources */,
 				F0474183205019AD00996BD6 /* AppDelegate.swift in Sources */,
 				F01C761C20542FC200122537 /* DetailViewController.swift in Sources */,
 				F047419520501C4D00996BD6 /* NewsTableViewController.swift in Sources */,
