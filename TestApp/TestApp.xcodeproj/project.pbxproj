@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F00B3B9D207E38E20071319C /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00B3B9C207E38E20071319C /* ToDoTableViewController.swift */; };
+		F00B3B9F207E437C0071319C /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00B3B9E207E437C0071319C /* ToDoTableViewCell.swift */; };
+		F00B3BA2207E4B720071319C /* ToDoCoreDate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F00B3BA0207E4B720071319C /* ToDoCoreDate.xcdatamodeld */; };
+		F00B3BA4207E50A70071319C /* AddToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00B3BA3207E50A70071319C /* AddToDoViewController.swift */; };
 		F01C761C20542FC200122537 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01C761B20542FC200122537 /* DetailViewController.swift */; };
 		F01D35242052F89F00ADBBA2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D35232052F89F00ADBBA2 /* Extensions.swift */; };
 		F0474183205019AD00996BD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0474182205019AD00996BD6 /* AppDelegate.swift */; };
@@ -21,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		F00B3B9C207E38E20071319C /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
+		F00B3B9E207E437C0071319C /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
+		F00B3BA1207E4B720071319C /* Todo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Todo.xcdatamodel; sourceTree = "<group>"; };
+		F00B3BA3207E50A70071319C /* AddToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoViewController.swift; sourceTree = "<group>"; };
 		F01C761B20542FC200122537 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F01D35232052F89F00ADBBA2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F047417F205019AD00996BD6 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +55,9 @@
 			isa = PBXGroup;
 			children = (
 				F00B3B9C207E38E20071319C /* ToDoTableViewController.swift */,
+				F00B3B9E207E437C0071319C /* ToDoTableViewCell.swift */,
+				F00B3BA3207E50A70071319C /* AddToDoViewController.swift */,
+				F00B3BA0207E4B720071319C /* ToDoCoreDate.xcdatamodeld */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -185,7 +194,10 @@
 			files = (
 				F01D35242052F89F00ADBBA2 /* Extensions.swift in Sources */,
 				F047419920502BCC00996BD6 /* FeedParser.swift in Sources */,
+				F00B3BA4207E50A70071319C /* AddToDoViewController.swift in Sources */,
 				F00B3B9D207E38E20071319C /* ToDoTableViewController.swift in Sources */,
+				F00B3B9F207E437C0071319C /* ToDoTableViewCell.swift in Sources */,
+				F00B3BA2207E4B720071319C /* ToDoCoreDate.xcdatamodeld in Sources */,
 				F0474183205019AD00996BD6 /* AppDelegate.swift in Sources */,
 				F01C761C20542FC200122537 /* DetailViewController.swift in Sources */,
 				F047419520501C4D00996BD6 /* NewsTableViewController.swift in Sources */,
@@ -376,6 +388,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F00B3BA0207E4B720071319C /* ToDoCoreDate.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F00B3BA1207E4B720071319C /* Todo.xcdatamodel */,
+			);
+			currentVersion = F00B3BA1207E4B720071319C /* Todo.xcdatamodel */;
+			path = ToDoCoreDate.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F0474177205019AD00996BD6 /* Project object */;
 }
