@@ -14,6 +14,7 @@ class ToDoTableViewController: UITableViewController, NSFetchedResultsController
     //Fetch result contorller
     var fetchResultController: NSFetchedResultsController<Task>!
     var task: [Task] = []
+    var taskStatus = "Active"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,13 +80,10 @@ class ToDoTableViewController: UITableViewController, NSFetchedResultsController
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        //print("\(task.count)")
         return task.count
         
     }
@@ -93,7 +91,10 @@ class ToDoTableViewController: UITableViewController, NSFetchedResultsController
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ToDoTableViewCell
-
+        
+        cell.titleLable.text = task[indexPath.row].title
+        cell.dateLable.text = task[indexPath.row].status
+    
         // Crossed out title
         let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: task[indexPath.row].title!)
         attributeString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
@@ -103,15 +104,8 @@ class ToDoTableViewController: UITableViewController, NSFetchedResultsController
         } else {
             cell.titleLable.attributedText = attributeString
         }
-        print(task[indexPath.row].status as Any)
         
-        //cell.titleLable.text = task[indexPath.row].title
-        cell.dateLable.text = task[indexPath.row].status
-    
-        
-
         return cell
-        
     }
     
     
@@ -126,46 +120,55 @@ class ToDoTableViewController: UITableViewController, NSFetchedResultsController
     */
 
     
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            self.task.remove(at: indexPath.row)
-            //Tableview reload 
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            //Getting context
-            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-                
-                let objectToDelete = fetchResultController.object(at: indexPath)
-                context.delete(objectToDelete)
-                
-                do {
-                    try context.save()
-                } catch {
-                    print(error.localizedDescription)
-                }
+    // Left swipe - delete cell.
+    @available(iOS 11.0, *)
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+            let todo = self.fetchResultController.object(at: indexPath)
+            self.fetchResultController.managedObjectContext.delete(todo)
+            do {
+                try self.fetchResultController.managedObjectContext.save()
+                completion(true)
+            }catch {
+                print(error.localizedDescription)
+                completion(false)
             }
         }
+        
+        action.image = #imageLiteral(resourceName: "trash")
+        action.backgroundColor = .red
+        
+        return UISwipeActionsConfiguration(actions: [action])
     }
     
+    //Right swipe - status change.
     @available(iOS 11.0, *)
     override func tableView(_ tableView: UITableView,
-                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+                            leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
-        let closeAction = UIContextualAction(style: .normal, title:  "Close", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            
-            self.task[indexPath.row].status = "Completed"
-            
-            success(true)
-        })
-        
-        closeAction.image = UIImage(named: "tick")
-        closeAction.backgroundColor = .green
-        return UISwipeActionsConfiguration(actions: [closeAction])
-        
-      
+        let checkAction = UIContextualAction(style: .normal, title:  "Complete", handler: { (action, view, success) in
 
-        
+            let todo = self.fetchResultController.object(at: indexPath)
+            todo.status = "Complete"
+
+            do {
+                try self.fetchResultController.managedObjectContext.save()
+                success(true)
+            } catch {
+                print(error.localizedDescription)
+                success(false)
+            }
+        })
+
+        checkAction.image = #imageLiteral(resourceName: "check")
+        checkAction.backgroundColor = .green
+
+        return UISwipeActionsConfiguration(actions: [checkAction])
     }
+    
+    
+
+    
 
     /*
     // Override to support rearranging the table view.

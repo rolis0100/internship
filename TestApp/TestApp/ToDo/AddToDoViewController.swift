@@ -64,8 +64,6 @@ class AddToDoViewController: UIViewController {
                 task.timeCreate = formater.string(from: Date())
                 if task.status == nil {
                     task.status = "Active"
-                } else {
-                    task.status = "Complet"
                 }
 
                 
