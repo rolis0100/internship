@@ -22,7 +22,7 @@ class ToDoTableViewController: UITableViewController, NSFetchedResultsController
         
         
         //Remove extra separators from TableView
-        tableView.tableFooterView = UIView()
+        self.tableView.tableFooterView = UIView()
 
         //Create fetch request with descriptor
         let fetchRequst: NSFetchRequest<Task> = Task.fetchRequest()
@@ -93,7 +93,7 @@ class ToDoTableViewController: UITableViewController, NSFetchedResultsController
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ToDoTableViewCell
         
         cell.titleLable.text = task[indexPath.row].title
-        cell.dateLable.text = task[indexPath.row].status
+        cell.dateLable.text = task[indexPath.row].timeCreate
     
         // Crossed out title
         let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: task[indexPath.row].title!)
@@ -107,19 +107,7 @@ class ToDoTableViewController: UITableViewController, NSFetchedResultsController
         
         return cell
     }
-    
-    
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    
+ 
     // Left swipe - delete cell.
     @available(iOS 11.0, *)
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -165,34 +153,20 @@ class ToDoTableViewController: UITableViewController, NSFetchedResultsController
 
         return UISwipeActionsConfiguration(actions: [checkAction])
     }
-    
-    
 
     
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "DetailToDoViewController" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destinationController = segue.destination as! DetailToDoViewController
+                destinationController.titleLable = self.task[indexPath.row].title!
+                destinationController.descLable = self.task[indexPath.row].desc!
+                destinationController.dateLable = self.task[indexPath.row].timeCreate!
+            }
+        }
     }
-    */
+ 
 
 }

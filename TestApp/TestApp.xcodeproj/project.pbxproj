@@ -11,6 +11,7 @@
 		F00B3B9F207E437C0071319C /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00B3B9E207E437C0071319C /* ToDoTableViewCell.swift */; };
 		F00B3BA2207E4B720071319C /* ToDoCoreDate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F00B3BA0207E4B720071319C /* ToDoCoreDate.xcdatamodeld */; };
 		F00B3BA4207E50A70071319C /* AddToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00B3BA3207E50A70071319C /* AddToDoViewController.swift */; };
+		F00F5EA82085FB76002E9F1D /* DetailToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00F5EA72085FB76002E9F1D /* DetailToDoViewController.swift */; };
 		F01C761C20542FC200122537 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01C761B20542FC200122537 /* DetailViewController.swift */; };
 		F01D35242052F89F00ADBBA2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D35232052F89F00ADBBA2 /* Extensions.swift */; };
 		F0474183205019AD00996BD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0474182205019AD00996BD6 /* AppDelegate.swift */; };
@@ -27,6 +28,7 @@
 		F00B3B9E207E437C0071319C /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
 		F00B3BA1207E4B720071319C /* Todo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Todo.xcdatamodel; sourceTree = "<group>"; };
 		F00B3BA3207E50A70071319C /* AddToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoViewController.swift; sourceTree = "<group>"; };
+		F00F5EA72085FB76002E9F1D /* DetailToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailToDoViewController.swift; sourceTree = "<group>"; };
 		F01C761B20542FC200122537 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F01D35232052F89F00ADBBA2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F047417F205019AD00996BD6 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +58,7 @@
 			children = (
 				F00B3B9C207E38E20071319C /* ToDoTableViewController.swift */,
 				F00B3B9E207E437C0071319C /* ToDoTableViewCell.swift */,
+				F00F5EA72085FB76002E9F1D /* DetailToDoViewController.swift */,
 				F00B3BA3207E50A70071319C /* AddToDoViewController.swift */,
 				F00B3BA0207E4B720071319C /* ToDoCoreDate.xcdatamodeld */,
 			);
@@ -195,6 +198,7 @@
 				F01D35242052F89F00ADBBA2 /* Extensions.swift in Sources */,
 				F047419920502BCC00996BD6 /* FeedParser.swift in Sources */,
 				F00B3BA4207E50A70071319C /* AddToDoViewController.swift in Sources */,
+				F00F5EA82085FB76002E9F1D /* DetailToDoViewController.swift in Sources */,
 				F00B3B9D207E38E20071319C /* ToDoTableViewController.swift in Sources */,
 				F00B3B9F207E437C0071319C /* ToDoTableViewCell.swift in Sources */,
 				F00B3BA2207E4B720071319C /* ToDoCoreDate.xcdatamodeld in Sources */,

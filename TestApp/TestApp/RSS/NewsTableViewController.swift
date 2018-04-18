@@ -11,36 +11,45 @@ import UIKit
 class NewsTableViewController: UITableViewController {
 
     private var rssItems:[ArticleItem]?
+    var refresh = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       // The parseFeed method parse the specified RSS feed. Save rssItems and ask the table view to display them by reloading the table data.
+        
+        tableView.refreshControl = refresh
+downloadData()
+        refresh.tintColor = UIColor(red: 157/255, green: 21/255, blue: 27/255, alpha: 0.5)
+        refresh.addTarget(self, action: #selector(refreshDowloadData(sender:)), for: .valueChanged)
+    }
+    // The parseFeed method parse the specified RSS feed. Save rssItems and ask the table view to display them by reloading the table data.
+    private func downloadData() {
         let feedParser = FeedParser()
         feedParser.parseFeed(feedUrl: "http://feeds.bbci.co.uk/news/technology/rss.xml", complitionHandler: { (rssItems: [ArticleItem]) -> Void in
             
             self.rssItems = rssItems
             OperationQueue.main.addOperation({ () -> Void in
-               
+                
                 self.tableView.reloadSections(IndexSet(integer: 0), with: .none)
             })
         })
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    //Pull to refresh
+    @objc func refreshDowloadData(sender: Any) {
+        downloadData()
+        DispatchQueue.main.async {
+            self.tableView.refreshControl?.endRefreshing()
+        }
+        
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // Return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of rows in the section.
         guard let rssItems = rssItems else {
             return 0
         }
@@ -62,47 +71,9 @@ class NewsTableViewController: UITableViewController {
 
         return cell
     }
- 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
    
      //MARK: - Navigation
-
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailViewController" {
             if let indexPath = tableView.indexPathForSelectedRow {

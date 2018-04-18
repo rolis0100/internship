@@ -21,31 +21,19 @@ class AddToDoViewController: UIViewController {
         subView.layer.cornerRadius = 10
         addTaskButton.layer.cornerRadius = 20
         
+    //TextFieldStyle
+        titleTextLable.textFieldStyle(textField: titleTextLable)
+        descTextLable.textFieldStyle(textField: descTextLable)
         
-        
-        //Title TextLable border
-        let bordelTitle = CALayer()
-        bordelTitle.borderColor = UIColor.darkGray.cgColor
-        bordelTitle.frame = CGRect(x: 0, y: 28, width: 268, height: 30)
-        bordelTitle.borderWidth = 2
-        titleTextLable.layer.addSublayer(bordelTitle)
-        titleTextLable.layer.masksToBounds = true
-        titleTextLable.leftViewMode = UITextFieldViewMode.always
-        
-        //Description TextLable border
-        let borderDescription = CALayer()
-        borderDescription.borderColor = UIColor.darkGray.cgColor
-        borderDescription.frame = CGRect(x: 0, y: 28, width: 268, height: 30)
-        borderDescription.borderWidth = 2
-        descTextLable.layer.addSublayer(borderDescription)
-        descTextLable.layer.masksToBounds = true
-        descTextLable.leftViewMode = UITextFieldViewMode.always
+        //Dismiss keyboard
+        self.hideKeyboardWhenTappedAround()
+
     }
     
     @IBAction func addButton(_ sender: UIStoryboardSegue) {
         
-        if titleTextLable.text == "" && descTextLable.text == "" {
-            let alertController = UIAlertController(title: "Oops!", message: "Please, input your task.", preferredStyle: .alert)
+        if titleTextLable.text == "" || descTextLable.text == "" {
+            let alertController = UIAlertController(title: "Oops!", message: "Please input all information.", preferredStyle: .alert)
             let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alertController.addAction(okButton)
             present(alertController, animated: true, completion: nil)
@@ -78,26 +66,4 @@ class AddToDoViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
-    
-    
-    @IBAction func addTaskButton(_ sender: UIButton) {
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
