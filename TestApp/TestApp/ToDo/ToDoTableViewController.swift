@@ -111,7 +111,7 @@ class ToDoTableViewController: UITableViewController, NSFetchedResultsController
     // Left swipe - delete cell.
     @available(iOS 11.0, *)
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+        let action = UIContextualAction(style: .normal, title: "Delete") { (action, view, completion) in
             let todo = self.fetchResultController.object(at: indexPath)
             self.fetchResultController.managedObjectContext.delete(todo)
             do {
