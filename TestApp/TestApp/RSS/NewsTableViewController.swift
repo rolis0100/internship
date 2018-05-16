@@ -63,10 +63,10 @@ downloadData()
 
         // Configure the cell...
         if let item = rssItems?[indexPath.row] {
-            cell.TitleLable.text = item.title
-            cell.DescLable.text = item.description
-            cell.DateLable.text = item.pubDate
-            cell.ImgView.downloadImage(url: item.media)
+            cell.titleLable.text = item.title
+            cell.descLable.text = item.description
+            cell.dateLable.text = item.pubDate
+            cell.imgView.downloadImage(url: item.media)
         }
 
         return cell
@@ -82,7 +82,7 @@ downloadData()
                     destinationController.titleLable = item.title
                     destinationController.descLable = item.description
                     destinationController.dateLable = item.pubDate
-                    destinationController.ImageLable = item.media
+                    destinationController.imageLable = item.media
                     destinationController.link = item.link
                 }
             }

@@ -23,7 +23,7 @@ class DetailViewController: UIViewController {
     
     var titleLable = ""
     var descLable = ""
-    var ImageLable = ""
+    var imageLable = ""
     var dateLable = ""
     var link = ""
     
@@ -33,7 +33,7 @@ class DetailViewController: UIViewController {
         detailTitleLable.text = titleLable
         detailDescLable.text = descLable
         detailDateLable.text = dateLable
-        detailImgView.downloadImage(url: ImageLable)
+        detailImgView.downloadImage(url: imageLable)
     }
 
 }
